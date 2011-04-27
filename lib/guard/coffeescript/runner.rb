@@ -53,7 +53,7 @@ module Guard
           filename = File.join(directory, File.basename(file.gsub(/coffee$/, 'js')))
           File.open(File.expand_path(filename), 'w') { |f| f.write(content) }
           File.open(File.expand_path(filename.gsub('.js','.min.js')), 'w') do |f|
-            compressor = YUI::JavaScriptCompressor.new(:munge => true)
+            compressor = YUI::JavaScriptCompressor.new #(:munge => true)
             f.write compressor.compress(content)
           end
           filename
